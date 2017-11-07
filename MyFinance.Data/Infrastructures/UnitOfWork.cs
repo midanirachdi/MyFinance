@@ -17,16 +17,16 @@ namespace MyFinance.Data.Infrastructures
 
         }
 
-        public UnitOfWork()
+        public MyFinalsContext Ctx
         {
-            //throw new NotImplementedException();
+            get { return ctx; }
         }
 
         public void Dispose()
         {
-            if (ctx != null)
+            if (Ctx != null)
             {
-                ctx.Dispose();
+                Ctx.Dispose();
             }
         }
         public void commit()

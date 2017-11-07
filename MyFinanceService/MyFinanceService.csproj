@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionCategory.cs" />
     <Compile Include="GestionProduct.cs" />
+    <Compile Include="IGestionCategory.cs" />
     <Compile Include="IGestionProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

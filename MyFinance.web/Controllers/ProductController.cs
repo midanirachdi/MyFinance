@@ -20,8 +20,17 @@ namespace MyFinance.web.Controllers
         // GET: Product
         public ActionResult Index()
         {
-            
-            return View(gp.GetMany());
+            string destination = (String) Session["MaVariable"];
+            ViewBag.Data = destination;
+            var liste = gp.FindByCondition();
+            return View(liste);
+        }
+
+        [HttpPost]
+        public ActionResult Index(string SearchString)
+        {
+            var resultat = gp.FindByCondition(p => p.Name.Contains(SearchString));
+            return View(resultat);
         }
 
         // GET: Product/Details/5
@@ -33,6 +42,9 @@ namespace MyFinance.web.Controllers
         // GET: Product/Create
         public ActionResult Create()
         {
+           /* GestionCategory gc = new GestionCategory();
+            var list = gc.FindByCondition();
+            ViewBag.categories = new SelectList(list, "CategoryId", "Nom");*/
             return View();
         }
 
@@ -44,7 +56,7 @@ namespace MyFinance.web.Controllers
             // TODO: Add insert logic here
             gp.Create(p);
             gp.Commit();
-
+            Session["MaVariable"] = p.Name; //declaration variable de session
                 return RedirectToAction("Index");
           
         }
@@ -82,6 +94,10 @@ namespace MyFinance.web.Controllers
             return View(gp.FindById(id));
         }
 
+        public ActionResult Test()
+        {
+            return View();
+    }
         // POST: Product/Delete/5
         [HttpPost]
         public ActionResult Delete(int ?id)

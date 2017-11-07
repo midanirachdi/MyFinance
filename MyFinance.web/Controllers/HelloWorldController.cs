@@ -12,21 +12,26 @@ namespace MyFinance.web.Controllers
     public class HelloWorldController : Controller
     {
         // GET: HelloWorld
-        public string Welcome(string name, int Numtimes=1)
+        public string Welcome(string name, int Numtimes = 1)
         {
-            return "this is my name "+name+" and numtimes ="+Numtimes;
+            return "this is my name " + name + " and numtimes =" + Numtimes;
         }
+
         [Route("welcome2/{name}/{Numtimes}")]
         // this will be called directly
         public string Welcome2(string name, int Numtimes = 1)
         {
             return "this is my name " + name + " and numtimes =" + Numtimes;
         }
+
         public ActionResult Affich(string name, int Numtimes = 1)
         {
-            ViewBag.Message = "my name is" + name ;
+            ViewBag.Message = "my name is" + name;
             ViewBag.nbre = Numtimes;
             return View();
         }
-    }
+
+        
 }
+}
+    

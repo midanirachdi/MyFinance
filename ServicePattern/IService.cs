@@ -18,7 +18,7 @@ namespace ServicePattern
         IEnumerable<T> FindByCondition(
             Expression<Func<T, bool>> condition = null,
             Expression<Func<T, bool>> orederby = null);
-        IEnumerable<T> GetMany(Expression<Func<T, bool>> where = null, Expression<Func<T, bool>> orderBy = null);
+        //IEnumerable<T> GetMany(Expression<Func<T, bool>> where = null, Expression<Func<T, bool>> orderBy = null);
         void Commit();
     }
 }

@@ -24,6 +24,7 @@ namespace ServicePattern
 
         public IEnumerable<T> FindByCondition(Expression<Func<T, bool>> condition = null, Expression<Func<T, bool>> orederby = null)
         {
+            
             return utw.GetRepository<T>().FindByCondition(condition, orederby);
         }
 
@@ -52,10 +53,10 @@ namespace ServicePattern
             utw.GetRepository<T>().Update(entity);
             
         }
-        public IEnumerable<T> GetMany(Expression<Func<T, bool>> filter = null, Expression<Func<T, bool>> orderBy = null)
+        /*public IEnumerable<T> GetMany(Expression<Func<T, bool>> filter = null, Expression<Func<T, bool>> orderBy = null)
         {
             return utw.GetRepository<T>().GetMany(filter, orderBy);
-        }
+        }*/
         public void Commit()
         {
             utw.commit();

@@ -80,7 +80,7 @@ namespace MyFinance.Data.Infrastructures
             }
             return dbset.Where(condition).OrderBy(orederby);
         }
-        public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where = null, Expression<Func<T, bool>> orderBy = null)
+       /* public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where = null, Expression<Func<T, bool>> orderBy = null)
         {
             IQueryable<T> Query = dbset;
             if (where != null)
@@ -92,6 +92,6 @@ namespace MyFinance.Data.Infrastructures
                 Query = Query.OrderBy(orderBy);
             }
             return Query;
-        }
+        }*/
     }
 }
